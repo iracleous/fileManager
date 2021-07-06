@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.9" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="gr.codebub.filemanager.Product">
+    <void property="inventoryQuantity">
+     <int>6</int>
+    </void>
+    <void property="name">
+     <string>snack</string>
+    </void>
+    <void property="price">
+     <double>3.2</double>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
