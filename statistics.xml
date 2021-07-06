@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.9" class="java.beans.XMLDecoder">
+ <object class="gr.codebub.filemanager.Statistics">
+  <void property="average">
+   <double>1.7297872340425535</double>
+  </void>
+  <void property="count">
+   <int>47</int>
+  </void>
+  <void property="maxPrice">
+   <double>3.2</double>
+  </void>
+  <void property="minPrice">
+   <double>1.2</double>
+  </void>
+  <void property="sum">
+   <double>81.30000000000001</double>
+  </void>
+ </object>
+</java>

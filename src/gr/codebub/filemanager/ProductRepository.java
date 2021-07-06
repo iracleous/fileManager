@@ -14,6 +14,15 @@ public class ProductRepository {
         products = new ArrayList<>();
     }
 
+    public static void serializeToXML(String filename, Object object) throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(filename);
+        XMLEncoder encoder = new XMLEncoder(fileOutputStream);
+
+        encoder.writeObject(object);
+        encoder.close();
+        fileOutputStream.close();
+    }
+
     //crud
     //create
     public void addProduct(Product product) {
@@ -80,12 +89,7 @@ public class ProductRepository {
     }
 
     public void serializeToXML(String filename) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(filename);
-        XMLEncoder encoder = new XMLEncoder(fileOutputStream);
-
-        encoder.writeObject(products);
-        encoder.close();
-        fileOutputStream.close();
+        serializeToXML(filename, products);
     }
 
     public void deserializeFromXML(String filename) throws IOException {
@@ -96,6 +100,48 @@ public class ProductRepository {
         fileInputStream.close();
     }
 
+
+    /**
+     * R123
+     * <p>
+     * Print statistics
+     * total sum of all products in the inventory
+     * most expensive, max
+     * leat expensive, min
+     * avg price, avg
+     */
+
+    public Statistics getStatistics() {
+
+        Statistics statistics = new Statistics();
+        if (products.isEmpty()) return statistics;
+        //sum
+
+        double sum = 0;
+        double maxPrice = products.get(0).getPrice();
+        double minPrice = products.get(0).getPrice();
+        int total = 0;
+
+//        for(int index = 0; index<products.size(); index++){
+//            sum += products.get(index). getPrice()* products.get(index).getInventoryQuantity();
+//        }
+
+        for (Product product : products) {
+            sum += product.getPrice() * product.getInventoryQuantity();
+            if (product.getPrice() > maxPrice) maxPrice = product.getPrice();
+            if (product.getPrice() < minPrice) minPrice = product.getPrice();
+            total += product.getInventoryQuantity();
+
+        }
+
+        statistics.setSum(sum);
+        statistics.setMaxPrice(maxPrice);
+        statistics.setMinPrice(minPrice);
+        statistics.setAverage(sum / total);
+        statistics.setCount(total);
+
+        return statistics;
+    }
 
 }
 

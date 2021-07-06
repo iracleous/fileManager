@@ -1,8 +1,5 @@
 package gr.codebub.filemanager;
 
-import gr.codebub.filemanager.exception.TooHighPriceException;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class MainAppplication {
@@ -24,14 +21,17 @@ public class MainAppplication {
 //        productRepository.save("products.txt");
 //
 
- //       productRepository.load("products.txt");
+       productRepository.load("products.txt");
 
-        productRepository.deserializeFromXML("products.xml");
+    //    productRepository.deserializeFromXML("products.xml");
 
         System.out.println(productRepository);
+        System.out.println(productRepository.getStatistics());
 
 
-   //         productRepository.serializeToXML("products.xml");
+        productRepository.serializeToXML("statistics.xml",productRepository.getStatistics() );
+
+           productRepository.serializeToXML("products.xml");
 
     }
 }

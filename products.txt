@@ -1,1 +1,5 @@
 snack,3.2,6
+chocolate,1.8,8
+chips,1.5,15
+chichlets,1.8,6
+wafers,1.2,12
